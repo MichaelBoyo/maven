@@ -5,14 +5,17 @@ import africa.semicolon.trueCaller.data.models.Contact;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class ContactRepositoryImpl implements ContactRepository{
+public class ContactRepositoryMapImpl implements ContactRepository{
     private int counter;
     private Map<Integer, Contact> contacts = new HashMap<>();
     @Override
     public Contact save(Contact contact) {
-        counter++;
-        contact.setId(counter);
-        contacts.put(counter,contact);
+        if(contact.getId()== 0){
+            counter++;
+            contact.setId(counter);
+            contacts.put(counter,contact);
+        }
+
         return contact;
     }
 
