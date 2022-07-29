@@ -10,6 +10,7 @@ public interface UserRepository {
     void delete(int id);
     User findById(int id);
     List<User> findByEmail(String email);
+    User findUserByEmail(String email);
     List<User> findAll();
     int count();
 }

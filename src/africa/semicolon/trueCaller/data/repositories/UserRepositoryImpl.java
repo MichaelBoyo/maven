@@ -47,6 +47,12 @@ public class UserRepositoryImpl implements UserRepository{
     }
 
     @Override
+    public User findUserByEmail(String email) {
+        return users.values().stream().
+                filter(user -> user.getEmail().equals(email)).findFirst().get();
+    }
+
+    @Override
     public List<User> findAll() {
         return users.values().stream().toList();
     }
